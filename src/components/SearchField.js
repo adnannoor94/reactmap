@@ -6,10 +6,10 @@ const tempSavedLocation = [
   { name: "Khanna Pul", value: { lat: 33.693918, lng: 73.064534 } },
   { name: "Safa Gold Mall", value: { lat: 33.693918, lng: 73.064534 } },
   { name: "Faisal Mosque", value: { lat: 33.693918, lng: 73.064534 } },
-  { name: "Pakistan Monument", value: { lat: 33.693918, lng: 73.064534 } },
-  { name: "Faizabad", value: { lat: 33.693918, lng: 73.064534 } },
-  { name: "Rawal Lake", value: { lat: 33.693918, lng: 73.064534 } },
-  { name: "Fatima Jinnah Park", value: { lat: 33.693918, lng: 73.064534 } },
+  //   { name: "Pakistan Monument", value: { lat: 33.693918, lng: 73.064534 } },
+  //   { name: "Faizabad", value: { lat: 33.693918, lng: 73.064534 } },
+  //   { name: "Rawal Lake", value: { lat: 33.693918, lng: 73.064534 } },
+  //   { name: "Fatima Jinnah Park", value: { lat: 33.693918, lng: 73.064534 } },
 ];
 
 export default function SearchField() {
@@ -36,7 +36,7 @@ export default function SearchField() {
   const hideListAfterPause = () => {
     setTimeout(() => {
       setShowList(false);
-    }, 200);
+    }, 150);
   };
 
   const searchFieldInputClasses = cx("form-control", {
@@ -45,6 +45,9 @@ export default function SearchField() {
 
   return (
     <div className="search-field">
+      <span className="addon-icon">
+        <i class="fa fa-search"></i>
+      </span>
       <input
         type="text"
         className={searchFieldInputClasses}

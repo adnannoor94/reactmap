@@ -11,24 +11,43 @@ body {
   letter-spacing: 0.25px;
 }
 
+::placeholder {
+  color: #8c8c8e;
+  opacity: 1; /* Firefox */
+}
+
 .search-field {
   position: absolute;
   z-index: 999;
   margin: 8px 0 8px 8px;
-  width: 392px;
+  width: 365px;
 }
 
 .form-control {
   height: 48px;
   width: 100%;
-  padding: 0 16px;
+  color: #fafafc;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   border: none;
   outline: none;
 }
 
 .search-field .form-control {
+  background: #595959;
+  padding: 0 16px 0 40px;
+
   border-radius: 8px 8px 0 0;
-  border-bottom: 1px solid #dadce0;
+  border-bottom: 1px solid #191923;
+}
+
+.addon-icon {
+  position: absolute;
+  line-height: 48px;
+  font-size: initial;
+  padding: 0 16px;
+  color: #fafafc;
 }
 
 .search-field .form-control.round-bottom {
@@ -38,13 +57,15 @@ body {
 
 .search-field ul {
   margin: 0;
-  padding: 8px 0;
-  width: 424px;
+  padding: 8px 16px;
+  width: 389px;
   max-height: 240px;
   overflow-y: auto;
   background: white;
   border-radius: 0 0 8px 8px;
   border-bottom: 1px solid #dadce0;
+  background-color: #595959;
+  color: #dadce0;
 }
 
 .search-field ul > li {
@@ -56,6 +77,8 @@ body {
 .search-field ul > li:hover {
   cursor: pointer;
   background: #dedede;
+  color: #595959;
+  border-radius: 4px;
 }
 
 button:hover {
@@ -69,6 +92,76 @@ button.btn-danger {
   border-radius: 4px;
 }
 
-li.active {
-  background: #00f57d;
+// li.active {
+//   background: #00f57d;
+// }
+
+.save-location-popup {
+  position: absolute;
+  z-index: 999;
+  width: 400px;
+  padding: 16px;
+  background: white;
+  bottom: 10%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -25px;
+  border-radius: 8px;
+  background-color: #595959;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+}
+
+.save-location-popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.save-location-popup .form-control {
+  height: 50px;
+  width: 358px;
+  background: #252532;
+  border: none;
+  color: #fafafc;
+  padding-left: 40px;
+  margin-bottom: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.theme-btn {
+  margin-top: 16px;
+  height: 36px;
+  font-size: 12px;
+  padding: 0 35px;
+  text-decoration: none;
+  margin-right: 14px;
+  text-transform: uppercase;
+  color: #20202a;
+  letter-spacing: 1.3px;
+  font-weight: 600;
+  border: 8px;
+  transition: 0.4s ease-in-out;
+}
+
+.theme-btn span {
+  align-self: center;
+  transition: 0.2s ease-in-out;
+}
+
+.primary-color {
+  background-color: #2c75eb;
+  color: #fafafc;
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  color: #fafafc;
+  font-family: "Poppins", sans-serif;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  font-size: 17px;
+  font-weight: 600;
 }

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ text }) => (
+  <div className="show-location">{text}</div>
+);
 
 const DEFAULT_CENTER = { lat: 33.693918, lng: 73.064534 };
 const DEFAULT_ZOOM = 11;
