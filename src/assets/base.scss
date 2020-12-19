@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CCourier%2BPrime%3A400%2C400italic%2C700%2C700italic&subset=latin%2Clatin-ext");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+}
+
+.search-field {
+  position: absolute;
+  z-index: 999;
+  margin: 8px 0 8px 8px;
+  width: 392px;
+}
+
+.form-control {
+  height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  border: none;
+  outline: none;
+}
+
+.search-field .form-control {
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #dadce0;
+}
+
+.search-field .form-control.round-bottom {
+  border-radius: 8px 8px 8px 8px;
+  border-bottom: none;
+}
+
+.search-field ul {
+  margin: 0;
+  padding: 8px 0;
+  width: 424px;
+  max-height: 240px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 0 0 8px 8px;
+  border-bottom: 1px solid #dadce0;
+}
+
+.search-field ul > li {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-field ul > li:hover {
+  cursor: pointer;
+  background: #dedede;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button.btn-danger {
+  color: white;
+  background: #f51505;
+  border: none;
+  border-radius: 4px;
+}
+
+li.active {
+  background: #00f57d;
+}
