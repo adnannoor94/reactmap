@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import GoogleMapReact from "google-map-react";
+
+import { Context } from "../context/MapContext";
 
 const AnyReactComponent = ({ text }) => (
   <div className="show-location">{text}</div>
@@ -10,12 +12,14 @@ const DEFAULT_ZOOM = 11;
 const ZOOM_IN = 15;
 
 export default function Map() {
+  const { setSaveLocationPopupVisibility } = useContext(Context);
   const [mapCenter, setMapCenter] = useState(DEFAULT_CENTER);
   const [mapZoom, setMapZoom] = useState(DEFAULT_ZOOM);
 
   const mapClick = (clickedLocation) => {
     setMapCenter({ lat: clickedLocation.lat, lng: clickedLocation.lng });
     setMapZoom(ZOOM_IN);
+    setSaveLocationPopupVisibility(true);
   };
 
   return (
