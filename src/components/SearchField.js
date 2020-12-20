@@ -4,7 +4,9 @@ import cx from "classnames";
 import { Context } from "../context/MapContext";
 
 export default function SearchField() {
-  const { state, removeLocation, setCurrentLocation } = useContext(Context);
+  const { state, removeLocation, setCurrentLocationFromList } = useContext(
+    Context
+  );
   const [selectedLocation, setSelectedLocation] = useState("");
   const [showList, setShowList] = useState(false);
 
@@ -16,7 +18,7 @@ export default function SearchField() {
   };
 
   const selectLocation = (location) => {
-    setCurrentLocation(location.value);
+    setCurrentLocationFromList(location);
     setSelectedLocation(location.name);
   };
 

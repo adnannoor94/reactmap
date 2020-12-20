@@ -4,12 +4,9 @@ import GoogleMapReact from "google-map-react";
 import { Context } from "../context/MapContext";
 
 export default function Map() {
-  const {
-    state,
-    setCurrentLocation,
-    setCurrentLocationNoZooming,
-    setSaveLocationPopupVisibility,
-  } = useContext(Context);
+  const { state, setCurrentLocation, setCurrentLocationNoZooming } = useContext(
+    Context
+  );
 
   // Map on Click event
   const mapClick = (clickedLocation) => {
@@ -18,11 +15,8 @@ export default function Map() {
       lng: clickedLocation.lng,
     };
 
-    // Update current location in Context
+    // Update current location in Context and open Save Location popup
     setCurrentLocation(selectedLocation);
-
-    // Open location saving popup
-    setSaveLocationPopupVisibility(true);
   };
 
   // Map on Drag End event
@@ -32,7 +26,7 @@ export default function Map() {
       lng: location.center.lng(),
     };
 
-    // Update current location in Context, without initiaing zooming
+    // Update current location in Context, without initiaing zooming and close any popup if open
     setCurrentLocationNoZooming(selectedLocation);
   };
 

@@ -8,6 +8,7 @@ const ZOOM_IN = 15;
 
 const initialState = {
   showSaveLocationPopup: false,
+  showLocationNamePopup: false,
   savedLocations: [
     {
       name: "Faisal Mosque",
@@ -28,6 +29,7 @@ const initialState = {
   ],
   currentLocation: DEFAULT_CENTER,
   currentZoomLevel: DEFAULT_ZOOM,
+  currentLocationName: "",
 };
 
 const mapReducer = (state, action) => {
@@ -35,7 +37,7 @@ const mapReducer = (state, action) => {
     case "setSaveLocationPopupVisibility":
       state = { ...state, showSaveLocationPopup: action.payload };
       break;
-    case "setCurrentLocation":
+    case "setCurrentLocationFromList":
       const appliedZoomLevel = state.currentZoomLevel;
 
       // slight variation in value just to make sure the state updates and contributes in re-render
@@ -44,14 +46,28 @@ const mapReducer = (state, action) => {
 
       state = {
         ...state,
-        currentLocation: action.payload,
+        currentLocation: action.payload.value,
+        currentLocationName: action.payload.name,
         currentZoomLevel: updatedZoomLevel,
+        showSaveLocationPopup: false,
+        showLocationNamePopup: true,
       };
       break;
-    case "setCurrentLocationNoZooming":
+    case "setCurrentLocation":
       state = {
         ...state,
         currentLocation: action.payload,
+        showSaveLocationPopup: true,
+        showLocationNamePopup: false,
+      };
+      break;
+    case "setCurrentLocationNoZooming":
+      // While dragging, save location popup should also be hidden
+      state = {
+        ...state,
+        currentLocation: action.payload,
+        showSaveLocationPopup: false,
+        showLocationNamePopup: false,
       };
       break;
     case "addLocation":
@@ -83,6 +99,12 @@ const setCurrentLocation = (dispatch) => {
   };
 };
 
+const setCurrentLocationFromList = (dispatch) => {
+  return (location) => {
+    dispatch({ type: "setCurrentLocationFromList", payload: location });
+  };
+};
+
 const setCurrentLocationNoZooming = (dispatch) => {
   return (location) => {
     dispatch({ type: "setCurrentLocationNoZooming", payload: location });
@@ -106,6 +128,7 @@ export const { Context, Provider } = createDataContext(
   {
     setSaveLocationPopupVisibility,
     setCurrentLocation,
+    setCurrentLocationFromList,
     setCurrentLocationNoZooming,
     addLocation,
     removeLocation,

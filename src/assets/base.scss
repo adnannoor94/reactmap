@@ -96,6 +96,45 @@ button.btn-danger {
 //   background: #00f57d;
 // }
 
+.location-name-popup {
+  position: absolute;
+  z-index: 999;
+  width: 400px;
+  padding: 16px;
+  background: white;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -82px;
+  border-radius: 8px;
+  background-color: #595959;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+}
+
+.location-name-popup.active {
+  opacity: 0.8;
+  pointer-events: all;
+}
+
+.location-name-popup h4 {
+  margin-bottom: 0;
+}
+
+.location-name-popup ::after {
+  height: 16px;
+  width: 16px;
+  background-color: #595959;
+  transform: rotate(-45deg);
+  content: "";
+  position: absolute;
+  left: 208px;
+  bottom: -8px;
+  border-top-right-radius: 50%;
+  opacity: 0.8;
+}
+
 .save-location-popup {
   position: absolute;
   z-index: 999;
