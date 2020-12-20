@@ -7,10 +7,11 @@ export default function Map() {
   const {
     state,
     setCurrentLocation,
+    setCurrentLocationNoZooming,
     setSaveLocationPopupVisibility,
   } = useContext(Context);
 
-  // Map On Click event
+  // Map on Click event
   const mapClick = (clickedLocation) => {
     const selectedLocation = {
       lat: clickedLocation.lat,
@@ -24,6 +25,17 @@ export default function Map() {
     setSaveLocationPopupVisibility(true);
   };
 
+  // Map on Drag End event
+  const mapDragEnd = (location) => {
+    const selectedLocation = {
+      lat: location.center.lat(),
+      lng: location.center.lng(),
+    };
+
+    // Update current location in Context, without initiaing zooming
+    setCurrentLocationNoZooming(selectedLocation);
+  };
+
   return (
     <div style={{ height: "100vh", width: "100%" }}>
       <GoogleMapReact
@@ -33,6 +45,7 @@ export default function Map() {
         center={state.currentLocation}
         zoom={state.currentZoomLevel}
         onClick={mapClick}
+        onDragEnd={mapDragEnd}
       />
     </div>
   );

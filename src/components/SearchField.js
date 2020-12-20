@@ -16,9 +16,6 @@ export default function SearchField() {
   };
 
   const selectLocation = (location) => {
-    /** TO-DO
-     * Make sure the state do change, else it will not re-center to the selected location
-     */
     setCurrentLocation(location.value);
     setSelectedLocation(location.name);
   };

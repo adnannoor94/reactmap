@@ -48,6 +48,12 @@ const mapReducer = (state, action) => {
         currentZoomLevel: updatedZoomLevel,
       };
       break;
+    case "setCurrentLocationNoZooming":
+      state = {
+        ...state,
+        currentLocation: action.payload,
+      };
+      break;
     case "addLocation":
       const storedLocations = [...state.savedLocations];
       storedLocations.push(action.payload);
@@ -77,6 +83,12 @@ const setCurrentLocation = (dispatch) => {
   };
 };
 
+const setCurrentLocationNoZooming = (dispatch) => {
+  return (location) => {
+    dispatch({ type: "setCurrentLocationNoZooming", payload: location });
+  };
+};
+
 const addLocation = (dispatch) => {
   return (location) => {
     dispatch({ type: "addLocation", payload: location });
@@ -94,6 +106,7 @@ export const { Context, Provider } = createDataContext(
   {
     setSaveLocationPopupVisibility,
     setCurrentLocation,
+    setCurrentLocationNoZooming,
     addLocation,
     removeLocation,
   },
