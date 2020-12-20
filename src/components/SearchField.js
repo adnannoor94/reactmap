@@ -1,35 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import cx from "classnames";
 
-const tempSavedLocation = [
-  { name: "Zero Point", value: { lat: 33.693918, lng: 73.064534 } },
-  { name: "Khanna Pul", value: { lat: 33.693918, lng: 73.064534 } },
-  { name: "Safa Gold Mall", value: { lat: 33.693918, lng: 73.064534 } },
-  { name: "Faisal Mosque", value: { lat: 33.693918, lng: 73.064534 } },
-  //   { name: "Pakistan Monument", value: { lat: 33.693918, lng: 73.064534 } },
-  //   { name: "Faizabad", value: { lat: 33.693918, lng: 73.064534 } },
-  //   { name: "Rawal Lake", value: { lat: 33.693918, lng: 73.064534 } },
-  //   { name: "Fatima Jinnah Park", value: { lat: 33.693918, lng: 73.064534 } },
-];
+import { Context } from "../context/MapContext";
 
 export default function SearchField() {
+  const { state, removeLocation, setCurrentLocation } = useContext(Context);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [showList, setShowList] = useState(false);
 
-  const [savedLocation, setsavedLocation] = useState(tempSavedLocation);
+  const savedLocation = state.savedLocations;
 
   const handleInputChange = (e) => {
-    setSelectedLocation(e.target.value);
+    const currentFieldValue = e.target.value;
+    setSelectedLocation(currentFieldValue);
   };
 
   const selectLocation = (location) => {
+    /** TO-DO
+     * Make sure the state do change, else it will not re-center to the selected location
+     */
+    setCurrentLocation(location.value);
     setSelectedLocation(location.name);
   };
 
-  const removeLocation = (e, index) => {
-    let mSavedLocaitons = [...savedLocation];
-    mSavedLocaitons.splice(index, 1);
-    setsavedLocation(mSavedLocaitons);
+  const removeLocationLocal = (e, index) => {
+    removeLocation(index);
     e.stopPropagation();
   };
 
@@ -46,7 +41,7 @@ export default function SearchField() {
   return (
     <div className="search-field">
       <span className="addon-icon">
-        <i class="fa fa-search"></i>
+        <i className="fa fa-search"></i>
       </span>
       <input
         type="text"
@@ -60,23 +55,31 @@ export default function SearchField() {
       {showList ? (
         <ul>
           {savedLocation.map((location, index) => {
-            return (
-              <li
-                key={"location-" + index}
-                onClick={() => selectLocation(location)}
-                className={selectedLocation === location.name ? "active" : null}
-              >
-                <span className="name">{location.name}</span>
-                <button
-                  className="btn-danger sm"
-                  onClick={(event) => removeLocation(event, index)}
-                  alt="Remove"
-                  title="Remove"
+            if (
+              location.name
+                .toLowerCase()
+                .includes(selectedLocation.toLowerCase())
+            )
+              return (
+                <li
+                  key={"location-" + index}
+                  onClick={() => selectLocation(location)}
+                  className={
+                    selectedLocation === location.name ? "active" : null
+                  }
                 >
-                  <i className="fa fa-trash"></i>
-                </button>
-              </li>
-            );
+                  <span className="name">{location.name}</span>
+                  <button
+                    className="btn-danger sm"
+                    onClick={(event) => removeLocationLocal(event, index)}
+                    alt="Remove"
+                    title="Remove"
+                  >
+                    <i className="fa fa-trash"></i>
+                  </button>
+                </li>
+              );
+            else return null;
           })}
         </ul>
       ) : null}
