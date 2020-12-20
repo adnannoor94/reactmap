@@ -34,7 +34,7 @@ export default function Map() {
     <div style={{ height: "100vh", width: "100%" }}>
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: "AIzaSyCZepM1i98efCueheB_iJ496OtW3Nr-1cM",
+          key: "YOUR_GOOGLE_MAP_API_KEY",
         }}
         center={state.currentLocation}
         zoom={state.currentZoomLevel}

@@ -1,6 +1,6 @@
 # About
 
-An interactive react app that shows fullscreen Google Map with an option to save any clicked location that will be accessible in a searchable list.
+An interactive react app that shows full-screen Google Map with an option to save any clicked location that will be accessible in a searchable list.
 Demo: [https://adnannoor.me/reactmap](https://adnannoor.me/reactmap)
 
 There are some locations that are pre-filled and hardcoded in src/context/MapContext.js
