@@ -12,27 +12,32 @@ export default function SearchField() {
 
   const savedLocation = state.savedLocations;
 
+  // Update search field value while the user is typing
   const handleInputChange = (e) => {
     const currentFieldValue = e.target.value;
     setSelectedLocation(currentFieldValue);
   };
 
+  // Select the location from list
   const selectLocation = (location) => {
     setCurrentLocationFromList(location);
     setSelectedLocation(location.name);
   };
 
+  // Removing locatoin from list
   const removeLocationLocal = (e, index) => {
     removeLocation(index);
     e.stopPropagation();
   };
 
+  // Hide the list dropdown when the user leaves search field
   const hideListAfterPause = () => {
     setTimeout(() => {
       setShowList(false);
     }, 150);
   };
 
+  // Apply round bottom radius when the drop down is not open
   const searchFieldInputClasses = cx("form-control", {
     "round-bottom": !showList,
   });

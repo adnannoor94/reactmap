@@ -3,7 +3,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useReducer } from "react";
 
-export default (reducer, actions, initialState) => {
+export default function CreateDataContext(reducer, actions, initialState) {
   const Context = React.createContext();
 
   const Provider = ({ children }) => {
@@ -22,4 +22,4 @@ export default (reducer, actions, initialState) => {
   };
 
   return { Context, Provider };
-};
+}

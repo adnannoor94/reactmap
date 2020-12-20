@@ -1,7 +1,10 @@
 {
   "name": "reactmap",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "An interactive react app with an option for saving location that will be accessible in a search field.",
+  "author": "Adnan Noor",
+  "homepage": "https://adnannoor.me/reactmap",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",

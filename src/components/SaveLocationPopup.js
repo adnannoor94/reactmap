@@ -30,6 +30,7 @@ export default function SaveLocationPopup() {
     setLocationName("");
   };
 
+  // Applying class to set visible opacity when popup should be shown
   const mainDivClasses = cx("save-location-popup", {
     active: state.showSaveLocationPopup,
   });

@@ -87,36 +87,42 @@ const mapReducer = (state, action) => {
   return state;
 };
 
+// Control the visibility of location saving pop
 const setSaveLocationPopupVisibility = (dispatch) => {
   return (value) => {
     dispatch({ type: "setSaveLocationPopupVisibility", payload: value });
   };
 };
 
+// Update current location in state without the zooming effect but show popup for saving the location
 const setCurrentLocation = (dispatch) => {
   return (location) => {
     dispatch({ type: "setCurrentLocation", payload: location });
   };
 };
 
+// Update current location from search list and use zooming effect along with showing locaiton name in popup
 const setCurrentLocationFromList = (dispatch) => {
   return (location) => {
     dispatch({ type: "setCurrentLocationFromList", payload: location });
   };
 };
 
+// Update current location value wihtout using the zooming effect
 const setCurrentLocationNoZooming = (dispatch) => {
   return (location) => {
     dispatch({ type: "setCurrentLocationNoZooming", payload: location });
   };
 };
 
+// Add the location in search list
 const addLocation = (dispatch) => {
   return (location) => {
     dispatch({ type: "addLocation", payload: location });
   };
 };
 
+// Remove location from search list
 const removeLocation = (dispatch) => {
   return (index) => {
     dispatch({ type: "removeLocation", payload: index });
