@@ -17,9 +17,10 @@ For embedding Google Maps, **google-map-react** npm repo is used.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Initial Installation
+## How To Run
 
 After copying the repository, run `npm install` in the local directory to install all the required dependencies.
+Replace **YOUR_GOOGLE_MAP_API_KEY** in src/components/Map.js with your actual API key.
 
 ## Available Scripts
 
