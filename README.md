@@ -1,6 +1,25 @@
+# About
+
+An interactive react app that shows fullscreen Google Map with an option to save any clicked location that will be accessible in a searchable list.
+Demo: [https://adnannoor.me/reactmap](https://adnannoor.me/reactmap)
+
+There are some locations that are pre-filled and hardcoded in src/context/MapContext.js
+
+# The Code Behind
+
+In terms of react, the whole application is divided in 4 major components: **LocationNamePopup, SaveLocationPopup, SearchField** and **Map**. As the name suggests, each component deals with all the working regarding the named functionality.
+
+For embedding Google Maps, **google-map-react** npm repo is used.
+
+**Predictable State Container** is implemented though ContextAPI by React. Component share a global level state where required.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Initial Installation
+
+After copying the repository, run `npm install` in the local directory to install all the required dependencies.
 
 ## Available Scripts
 
@@ -44,27 +63,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
